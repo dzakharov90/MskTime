@@ -1,0 +1,8 @@
+name: MskPlugin
+version: '${project.version}'
+main: org.minecraft.MskPlugin
+api-version: '1.16'
+commands:
+  msktime:
+    description: Shows Moscow time
+    usage: /<command>
