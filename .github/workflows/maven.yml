@@ -28,12 +28,13 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
           cache: maven
-      - run: | 
+      - name: Building MC plugin
+        run: | 
           mvn clean
           mvn validate
           mvn package
-      - name: Download artifact
-        uses: actions/download-artifact@v3
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v2
         with:
           name: production
           path: ./target
