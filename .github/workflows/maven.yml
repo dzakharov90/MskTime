@@ -40,6 +40,8 @@ jobs:
           path: ./target
           retention-days: 90
       - name: Archieving artifact
+        env:
+          GITHUB_TOKEN: ${github.CI_Token}
         run: mvn deploy
 
       
