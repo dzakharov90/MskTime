@@ -10,6 +10,7 @@
   <packaging>jar</packaging>
 
   <name>MskPlugin</name>
+
   <activeProfiles>
     <activeProfile>github</activeProfile>
   </activeProfiles>
@@ -36,7 +37,6 @@
       <password>${CI_Token}</password>
     </server>
   </servers>
-</settings>
 
   <properties>
     <java.version>1.8</java.version>
@@ -97,11 +97,11 @@
   </dependencies>
 
   <distributionManagement>
-    <repository>
-      <id>github</id>
-      <name>GitHub OWNER Apache Maven Packages</name>
-      <url>https://maven.pkg.github.com/dzakharov90/MskTime</url>
-    </repository>
-  </distributionManagement>
+   <repository>
+     <id>github</id>
+     <name>GitHub OWNER Apache Maven Packages</name>
+     <url>https://maven.pkg.github.com/dzakharov90/MskTime</url>
+   </repository>
+</distributionManagement>
 
 </project>
