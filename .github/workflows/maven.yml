@@ -28,6 +28,17 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
           cache: maven
+      - name: Setup Maven settings.xml
+        uses: whelk-io/maven-settings-xml-action@v11
+        with:
+          servers: |
+            '[
+              {
+                "id": "artifactory",
+                "username": "dzakharov90",
+                "password": "${secrets.secrets.CI_Token}"
+              }
+            ]'
       - name: Building MC plugin
         run: | 
           mvn clean
@@ -41,8 +52,11 @@ jobs:
           retention-days: 90
       - name: Archieving artifact
         env:
-          REPO_TOKEN: ${ secrets.secrets.CI_Token }
-        run: mvn deploy
+          GITHUB_TOKEN: ${{ secrets.CI_Token }}
+        run: |
+          mkdir ~/.m2
+          echo "<settings><servers><server><id>github</id><username>dzakharov90</username><password>${GITHUB_TOKEN}</password></server></servers></settings>" > ~/.m2/settings.xml
+          mvn deploy
 
       
 #    - uses: actions/upload-artifact@v1
