@@ -39,12 +39,14 @@ jobs:
           name: production
           path: ./target
           retention-days: 90
-      - name: Archieving artifact
+      - name: Publish JAR
+        run: ./mvnw -B release:prepare release:perform
         env:
-          GITHUB_TOKEN: ${{ secrets.CI_Token }}
-        run: |
-          echo "<settings><servers><server><id>github</id><username>dzakharov90</username><password>${GITHUB_TOKEN}</password></server></servers></settings>" > ~/.m2/settings.xml
-          mvn deploy
+          GITHUB_TOKEN: ${{ secrets.CI_Token }}  
+        
+        # run: |
+        #   echo "<settings><servers><server><id>github</id><username>dzakharov90</username><password>${GITHUB_TOKEN}</password></server></servers></settings>" > ~/.m2/settings.xml
+        #   mvn deploy
 
       
 #    - uses: actions/upload-artifact@v1
