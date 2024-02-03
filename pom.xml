@@ -10,6 +10,33 @@
   <packaging>jar</packaging>
 
   <name>MskPlugin</name>
+  <activeProfiles>
+    <activeProfile>github</activeProfile>
+  </activeProfiles>
+
+  <profiles>
+    <profile>
+      <id>github</id>
+      <repositories>
+        <repository>
+          <id>github</id>
+          <url>https://maven.pkg.github.com/dzakharov90/MskTime</url>
+          <snapshots>
+            <enabled>true</enabled>
+          </snapshots>
+        </repository>
+      </repositories>
+    </profile>
+  </profiles>
+
+  <servers>
+    <server>
+      <id>github</id>
+      <username>dzakharov90</username>
+      <password>${CI_Token}</password>
+    </server>
+  </servers>
+</settings>
 
   <properties>
     <java.version>1.8</java.version>
