@@ -11,10 +11,6 @@
 
   <name>MskPlugin</name>
 
-  <activeProfiles>
-    <activeProfile>github</activeProfile>
-  </activeProfiles>
-
   <profiles>
     <profile>
       <id>github</id>
