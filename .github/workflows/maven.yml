@@ -28,17 +28,6 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
           cache: maven
-      - name: Setup Maven settings.xml
-        uses: whelk-io/maven-settings-xml-action@v11
-        with:
-          servers: |
-            '[
-              {
-                "id": "artifactory",
-                "username": "dzakharov90",
-                "password": "${secrets.secrets.CI_Token}"
-              }
-            ]'
       - name: Building MC plugin
         run: | 
           mvn clean
