@@ -41,7 +41,7 @@ jobs:
           retention-days: 90
       - name: Archieving artifact
         env:
-          GITHUB_TOKEN: ${github.CI_Token}
+          REPO_TOKEN: ${ secrets.secrets.CI_Token }
         run: mvn deploy
 
       
